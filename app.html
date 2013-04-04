@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Crosstalk Tutorial</title>
+        <link href="app.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <div id="content"></div>
+        <div id="templates">
+            
+            <div class="login-form">
+                <h1>Crosstalk Test</h1>
+                <form>
+                    <label for="email">Email</label>
+                    <input type="email" name="email" placeholder="Email" >
+                    <label for="password">Password</label>
+                    <input type="password" name="password" placeholder="Password" >
+                    <button type="submit" class="btn-primary" id="btn-login">
+                        Login or Register
+                    </button>
+                </form>
+            </div>
+            
+            <div class="messages">
+                <h1>Your Feed</h1>
+                <form class="message">
+                    <div class="img" style="background-image: url({{me.AvatarUrl}})" ></div>
+                    <h2>Write a message</h2>
+                    <textarea name="message" rows="8" placeholder="Write a message"></textarea>
+                    <button type="submit" class="btn-primary" id="send-msg">
+                        &rarr;
+                    </button>
+                </form>
+                <div class="feed"></div>
+            </div>
+            
+            <div class="message">
+                <div class="img" style="background-image: url({{Edge.From.AvatarUrl}})" ></div>
+                <h2>{{Edge.From.Name}}</h2>
+                <p>{{Body}}</p>
+                <abbr class="timestamp">{{Created}}</abbr>
+            </div>
+            
+        </div>
+    </body>
+    <!-- // <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
+    <script src="jquery-1.8.2.js"></script>
+    <script src="jquery.session.js"></script>
+    <script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/sha1.js"></script>
+    <script src="api.js"></script>
+    <script src="app.js"></script>
+    
+</html>

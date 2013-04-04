@@ -1,0 +1,152 @@
+@import url(http://fonts.googleapis.com/css?family=Maven+Pro:400,700);
+
+html, body {
+    margin: 0;
+    font-size: 75%;
+    font-family: 'Maven Pro', sans-serif;
+    font-weight: 400;
+}
+
+#templates {
+    display: none;
+}
+
+.login-form {
+    width: 500px;
+    margin: 100px auto;
+    border: 1px solid #aaa;
+    padding: 30px 40px 40px;
+    box-shadow: 0 0 1px transparent, 0 6px 3px -3px rgba(0,0,0,0.1);
+    border-radius: 2px;
+    box-sizing: border-box;
+}
+
+.login-form input[type="email"],
+.login-form input[type="password"],
+form textarea {
+    display: block;
+    padding: 10px;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 10px 0;
+    font-size: 1.6em;
+    border: 1px solid #3597fe;
+    box-shadow: inset 0 1px 2px 1px rgba(0,0,0,0.1);
+    line-height: 1.5em;
+    border-radius: 2px;
+}
+
+.login-form input[type="email"]:focus,
+.login-form input[type="password"]:focus,
+form textarea:focus {
+    outline: none;
+    border-color: #2c7acb;
+}
+
+.login-form label {
+    font-size: 1.6em;
+    color: #777;
+}
+
+[class*="btn"] {
+    padding: 11px 16px;
+    border-radius: 2px;
+    background-color: #3597fe;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    -webkit-transition: background-color 0.3s;
+    text-shadow: 0px -1px 1px rgba(0,0,0,0.3);
+    margin: 0;
+    font-size: 1.6em;
+    line-height: 1.5em;
+    box-shadow: inset 0 -1px 2px 1px rgba(0,0,0,0.1);
+}
+
+[class*="btn"]:hover {
+    background-color: #77bdfe;
+}
+
+[class*="btn"]:active {
+    -webkit-transition-duration: 0s;
+    background-color: #777;
+    box-shadow: inset 0 1px 4px 2px rgba(0,0,0,0.2);
+}
+
+h1 {
+    color: #222;
+}
+
+.messages {
+    width: 500px;
+    margin: 200px auto;
+}
+
+.message {
+    padding: 20px 20px 20px 100px;
+    box-sizing: border-box;
+    clear: both;
+    overflow: hidden;
+    border: 1px solid #aaa;
+    box-shadow: 0 0 1px transparent, 0 6px 3px -3px rgba(0,0,0,0.1);
+    border-radius: 2px;
+    margin: 40px 0;
+    position: relative;
+}
+
+.message textarea {
+    float: left;
+    margin: 0 20px 0 0;
+    width: 313px;
+    box-sizing: border-box;
+    resize: none;
+}
+
+.message button {
+    float: left;
+    width: 45px;
+    height: 190px;
+}
+
+.message .img {
+    float: left;
+    margin: 0 0 0 -80px;
+    height: 120px;
+    width: 60px;
+    background: #ddd none center center no-repeat;
+    border-radius: 2px;
+}
+
+.message .img:after {
+    position: absolute;
+    top: 160px;
+    bottom: 20px;
+    left: 20px;
+    width: 60px;
+    background: #eee;
+    content: "";
+    display: block;
+    border-radius: 2px;
+}
+
+.message h2 {
+    font-size: 2em;
+    overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.message abbr {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+.message p {
+    font-size: 1.6em;
+    line-height: 1.75em;
+    word-break: break-word;
+    margin: 0 0 1em;
+}
