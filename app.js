@@ -104,11 +104,11 @@ $(document).ready(function(){
         app.setIntent(app.intents.login);
     }
     
-    $(window).scroll($.debounce(250, true, function(){
+    $(window).scroll($.debounce(100, true, function(){
         $("#content .feed .message").removeClass("wobble").addClass("moving");
     }));
     
-    $(window).scroll($.debounce(250, function(){
+    $(window).scroll($.debounce(100, function(){
         $("#content .feed .message").addClass("wobble");
         setTimeout(function(){
             $("#content .feed .message").removeClass("moving");
