@@ -35,14 +35,16 @@ var Crosstalk = (function(){
         User.prototype.login = function(username, password, callback) {
             var self = this;
             var user = this.find({"username" : username}, function(users){
-                if (Object.prototype.toString.call(users) !== '[object Array]') {
-                    self.register.call(self, username, password, callback);
+                if (Object.prototype.toString.call(users) !== '[object Array]' || users.length == 0) {
+                    self.register.call(self, username, password, function() {
+                        callback();
+                    });
                 } else {
                     var user = users[0];
                     if (self.api.cryptoJS.SHA1(password).toString() == user.Data.password) {
                         // Use Auth ctx
                         self.api.userId = users[0].Id;
-                        this.api.session.set('uid', self.api.userId);
+                        self.api.session.set('uid', self.api.userId);
                         alert("Logged in!");
                         callback();
                     } else {
@@ -58,17 +60,21 @@ var Crosstalk = (function(){
         };
     
         User.prototype.register = function(username, password, callback) {
+            var self = this;
             $.post(this.base + "identity", {
                 Name: username,
                 AvatarUrl: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAWklEQVQYV2NkIBIwIqnbjEOPL0gcphCkCCyABYDl0BXOBAqmQxXD2CgK/0NNh9EgtShiMBORFaDbDpZDVigFFHiGpgomhqEQm2dAmuEKYW7CphBsK3I44g16AJnaEwtu0oQiAAAAAElFTkSuQmCC",
                 Type: "person",
                 Data: {
                     "username": username,
-                    "password": this.api.cryptoJS.SHA1(password).toString()
+                    "password": self.api.cryptoJS.SHA1(password).toString()
                 }
             }, function(data) {
                 alert("Registered!");
-                callback();
+                // Use Auth ctx
+                self.api.userId = data.Id;
+                self.api.session.set('uid', self.api.userId);
+                callback(data);
             });
         };
     
