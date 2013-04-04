@@ -71,9 +71,10 @@ var App = (function(){
             $(self.loadTemplate(".message", data)).reverse().each(function(){
                 var wobble = Math.random() * 5 - 2.5;
                 $(this).css({
-                    '-webkit-transform': 'rotate(' + wobble +'deg)',
-                    '-webkit-transform-origin': '200px -100px'
-                });
+                    /*'-webkit-transform': 'rotate(' + wobble +'deg)',*/
+                    '-webkit-transform-origin': '200px -100px',
+                    '-webkit-animation-duration': (1 + Math.floor(Math.random() * 10)/10) + "s"
+                }).addClass("wobble");
                 entryPoint.prepend(this);
             });
         });
@@ -102,5 +103,16 @@ $(document).ready(function(){
     } else {
         app.setIntent(app.intents.login);
     }
+    
+    $(window).scroll($.debounce(250, true, function(){
+        $("#content .feed .message").removeClass("wobble").addClass("moving");
+    }));
+    
+    $(window).scroll($.debounce(250, function(){
+        $("#content .feed .message").addClass("wobble");
+        setTimeout(function(){
+            $("#content .feed .message").removeClass("moving");
+        }, 800);
+    }));
 
 });

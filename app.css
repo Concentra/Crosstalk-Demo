@@ -79,7 +79,7 @@ h1 {
 
 .messages {
     width: 500px;
-    margin: 200px auto;
+    margin: 100px auto;
 }
 
 .message {
@@ -94,10 +94,20 @@ h1 {
     position: relative;
 }
 
+.wobble {
+    -webkit-animation: wobble 0.5s ease;
+}
+
+.moving {
+    -webkit-transition: -webkit-transform 0.5s;
+    -webkit-transform: rotate(5deg);
+}
+
 .message textarea {
     float: left;
     margin: 0 20px 0 0;
     width: 313px;
+    height: 190px;
     box-sizing: border-box;
     resize: none;
 }
@@ -149,4 +159,29 @@ h1 {
     line-height: 1.75em;
     word-break: break-word;
     margin: 0 0 1em;
+}
+
+@-webkit-keyframes wobble {
+    0% {
+        -webkit-transform: rotate(5deg);
+    }
+    15% {
+        -webkit-transform: rotate(-5deg);
+    }
+    30% {
+        -webkit-transform: rotate(3deg);
+    }
+    45% {
+        -webkit-transform: rotate(-2deg);
+    }
+    60% {
+        -webkit-transform: rotate(1deg);
+    }
+    75% {
+        -webkit-transform: rotate(-0.5deg);
+    }
+    100% {
+        -webkit-transform: rotate(0deg);
+    }
+    
 }
